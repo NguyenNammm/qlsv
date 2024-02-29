@@ -1,0 +1,63 @@
+<div class="page">
+  <div class="login">
+    <form
+      nz-form
+      [formGroup]="validateForm"
+      class="login-form"
+      (ngSubmit)="submitForm()"
+    >
+      <h1 class="header">Đăng nhập</h1>
+      Mã sinh viên
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Vui lòng nhập mã sinh viên">
+          <nz-input-group nzPrefixIcon="user">
+            <input
+              type="text"
+              nz-input
+              formControlName="userName"
+              placeholder="Mã sinh viên"
+            />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      Mật khẩu
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your Password!">
+          <nz-input-group nzPrefixIcon="lock">
+            <input
+              type="password"
+              nz-input
+              formControlName="password"
+              placeholder="Mật khẩu"
+            />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <button
+        nz-button
+        class="login-form-button login-form-margin"
+        [nzType]="'primary'"
+      >
+        <span nz-icon nzType="login" nzTheme="outline"></span>
+        Đăng nhập
+      </button>
+      <div nz-row class="login-form-margin">
+        <!-- <div nz-col [nzSpan]="12">
+        <label nz-checkbox formControlName="remember">
+          <span>Remember me</span>
+        </label>
+      </div> -->
+        <div nz-col [nzSpan]="12">
+          <a class="login-form-forgot" (click)="forgotPass()">Quên mật khẩu</a>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="pic">
+    <a href="http://tlu.edu.vn">
+      <img
+        src="https://tlus.edu.vn/wp-content/uploads/2023/03/cropped-Logo-dhtl-300x300.png"
+      />
+    </a>
+  </div>
+</div>
