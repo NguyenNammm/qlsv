@@ -38,6 +38,6 @@ export class LayoutComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.studentName = this.studentName.example;
+    this.studentName = this.studentName.name;
   }
 }

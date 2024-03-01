@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
         this.validateForm.value.userName === user &&
         this.validateForm.value.password === password
       ) {
-        this.name = this.validateForm.value.userName?.toString();
+        this.name = this.validateForm.value.userName;
         this.goTo();
       } else {
         this.message.error('Sai thông tin đăng nhập');

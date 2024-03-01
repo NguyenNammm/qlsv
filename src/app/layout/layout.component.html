@@ -29,17 +29,15 @@
           nzType="desktop"
           nzTheme="outline"
         ></span>
-        <a (click)="router.navigate(['/layout/trang-chu'])">Trang chủ</a>
+        <a (click)="goToPage('/layout/trang-chu')">Trang chủ</a>
       </li>
       <li nz-submenu nzOpen nzTitle="Đăng kí học" nzIcon="book">
         <ul>
           <li nz-menu-item nzMatchRouter>
-            <a (click)="router.navigate(['/layout/dang-ki-hoc'])"
-              >Đăng kí học mới</a
-            >
+            <a (click)="goToPage('/layout/dang-ki-hoc')">Đăng kí học mới</a>
           </li>
           <li nz-menu-item nzMatchRouter>
-            <a (click)="router.navigate(['/layout/thong-tin-dang-ki-hoc'])"
+            <a (click)="goToPage('/layout/thong-tin-dang-ki-hoc')"
               >KIểm tra thông tin đăng kí học</a
             >
           </li>
@@ -52,7 +50,7 @@
           nzType="check"
           nzTheme="outline"
         ></span>
-        <a (click)="router.navigate(['/layout/diem-thi'])">Xem điểm</a>
+        <a (click)="goToPage('/layout/diem-thi')">Xem điểm</a>
       </li>
       <li nz-menu-item nzOpen>
         <span
@@ -61,7 +59,7 @@
           nzType="calendar"
           nzTheme="outline"
         ></span>
-        <a (click)="router.navigate(['/layout/lich-thi'])">Xem lịch thi</a>
+        <a (click)="goToPage('/layout/lich-thi')">Xem lịch thi</a>
       </li>
       <li nz-menu-item nzOpen>
         <span
@@ -70,7 +68,7 @@
           nzType="bank"
           nzTheme="outline"
         ></span>
-        <a (click)="router.navigate(['/layout/hoc-phi'])">Xem học phí</a>
+        <a (click)="goToPage('/layout/hoc-phi')">Xem học phí</a>
       </li>
       <li nz-menu-item nzOpen>
         <span
@@ -79,7 +77,7 @@
           nzType="bell"
           nzTheme="outline"
         ></span>
-        <a (click)="router.navigate(['/layout/thong-bao'])">Thông báo</a>
+        <a (click)="goToPage('/layout/thong-bao')">Thông báo</a>
       </li>
       <li nz-menu-item nzOpen>
         <span
@@ -88,7 +86,7 @@
           nzType="form"
           nzTheme="outline"
         ></span>
-        <a (click)="router.navigate(['/layout/dang-ky-khac'])">Đăng kí khác</a>
+        <a (click)="goToPage('/layout/dang-ky-khac')">Đăng kí khác</a>
       </li>
       <li nz-menu-item nzOpen>
         <span
@@ -97,7 +95,7 @@
           nzType="search"
           nzTheme="outline"
         ></span>
-        <a (click)="router.navigate(['/layout/tra-cuu'])">Tra cứu</a>
+        <a (click)="goToPage('/layout/tra-cuu')">Tra cứu</a>
       </li>
     </ul>
   </nz-sider>

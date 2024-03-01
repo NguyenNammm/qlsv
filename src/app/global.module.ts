@@ -28,6 +28,8 @@ import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
 import { NzBadgeModule } from 'ng-zorro-antd/badge';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { NzGridModule } from 'ng-zorro-antd/grid';
 
 @NgModule({
   imports: [
@@ -62,6 +64,8 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
     NzBadgeModule,
     NzAvatarModule,
     NzModalModule,
+    NzDividerModule,
+    NzGridModule,
   ],
   exports: [
     CommonModule,
@@ -95,6 +99,8 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
     NzBadgeModule,
     NzAvatarModule,
     NzModalModule,
+    NzDividerModule,
+    NzGridModule,
   ],
 })
 export class GlobalModule {}
