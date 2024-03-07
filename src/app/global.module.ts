@@ -30,6 +30,7 @@ import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NzCardModule } from 'ng-zorro-antd/card';
 
 @NgModule({
   imports: [
@@ -66,6 +67,7 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
     NzModalModule,
     NzDividerModule,
     NzGridModule,
+    NzCardModule,
   ],
   exports: [
     CommonModule,
@@ -101,6 +103,7 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
     NzModalModule,
     NzDividerModule,
     NzGridModule,
+    NzCardModule,
   ],
 })
 export class GlobalModule {}

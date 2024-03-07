@@ -1,0 +1,64 @@
+<div class="upper">
+  <div class="pic">
+    <nz-avatar
+      [nzShape]="'square'"
+      [nzSize]="200"
+      [nzIcon]="'user'"
+    ></nz-avatar>
+  </div>
+  <div class="first-info">
+    <div class="name">
+      <div class="text">Họ và tên:</div>
+      <input nz-input [(ngModel)]="name" [disabled]="disable" />
+    </div>
+    <div class="msv">
+      <div class="text">Mã sinh viên:</div>
+      <input nz-input [(ngModel)]="msv" [disabled]="disable" />
+    </div>
+    <div class="birth">
+      <div class="text">Ngày sinh:</div>
+      <input nz-input [(ngModel)]="birth" [disabled]="disable" />
+    </div>
+  </div>
+</div>
+<div class="lower">
+  <div class="cccd">
+    <div class="text">CCCD:</div>
+    <input nz-input [(ngModel)]="cccd" [disabled]="disable" />
+  </div>
+  <div class="sdt">
+    <div class="text">SĐT:</div>
+    <input nz-input [(ngModel)]="sdt" [disabled]="disable" />
+  </div>
+  <div class="nganh">
+    <div class="text">Ngành:</div>
+    <input nz-input [(ngModel)]="nganh" [disabled]="disable" />
+  </div>
+  <div class="lop">
+    <div class="text">Lớp:</div>
+    <input nz-input [(ngModel)]="lop" [disabled]="disable" />
+  </div>
+</div>
+
+<div class="btn">
+  <button nz-button nzType="primary" (click)="edit()" *ngIf="disable === true">
+    Sửa thông tin
+  </button>
+  <button
+    nz-button
+    nzType="primary"
+    (click)="ngOnInit()"
+    *ngIf="disable === false"
+  >
+    Lưu lại
+  </button>
+  <button
+    nz-button
+    nzType="primary"
+    (click)="ngOnInit()"
+    nzDanger
+    *ngIf="disable === false"
+  >
+    Hủy bỏ
+  </button>
+</div>

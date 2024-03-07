@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-other-asign',
@@ -6,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./other-asign.component.scss'],
 })
 export class OtherAsignComponent implements OnInit {
-  constructor() {}
-
+  constructor(public router: Router) {}
   ngOnInit() {}
 }

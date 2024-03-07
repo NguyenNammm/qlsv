@@ -22,6 +22,7 @@ export class ScoreStudyComponent implements OnInit {
   private destroy$ = new Subject<boolean>();
   listOfData: Data[] = [];
   evaluate: any;
+  scoreC: any;
 
   scrollToIndex(index: number): void {
     this.nzTableComponent?.cdkVirtualScrollViewport?.scrollToIndex(index);
@@ -36,13 +37,17 @@ export class ScoreStudyComponent implements OnInit {
     for (let i = 0; i < 100; i++) {
       if (i % 2 == 0) {
         this.evaluate = 'Giỏi';
-      } else this.evaluate = 'Khá';
+        this.scoreC = 'A';
+      } else {
+        this.evaluate = 'Khá';
+        this.scoreC = 'C';
+      }
       data.push({
         index: i,
         name: `CSE42` + i,
         evaluate: this.evaluate,
         scoreN: i,
-        scoreC: `London`,
+        scoreC: this.scoreC,
       });
     }
     this.listOfData = data;
@@ -52,7 +57,7 @@ export class ScoreStudyComponent implements OnInit {
     this.nzTableComponent?.cdkVirtualScrollViewport?.scrolledIndexChange
       .pipe(takeUntil(this.destroy$))
       .subscribe((data: number) => {
-        console.log('scroll index to', data);
+        // console.log('scroll index to', data);
       });
   }
 

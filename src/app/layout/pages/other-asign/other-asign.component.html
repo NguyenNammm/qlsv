@@ -1,3 +1,77 @@
-<p>
-  other-asign works!
-</p>
+<div class="gutter-example">
+  <div nz-col class="gutter-col">
+    <div nz-row class="gutter-row">
+      <div class="grid-config">
+        <button
+          class="btn-text"
+          nz-button
+          nzType="text"
+          (click)="
+            this.router.navigate(['/layout/form'], { state: { option: 2 } })
+          "
+        >
+          Đăng kí thực tập
+        </button>
+      </div>
+      <div class="grid-config">
+        <button class="btn-text" nz-button nzType="text">
+          Đăng ký lớp bổ trợ
+        </button>
+      </div>
+      <div class="grid-config">
+        <button class="btn-text" nz-button nzType="text">Xét học bổng</button>
+      </div>
+      <div class="grid-config">
+        <button class="btn-text" nz-button nzType="text">Câu lạc bộ</button>
+      </div>
+    </div>
+    <div nz-row class="gutter-row">
+      <div class="grid-config">
+        <button class="btn-text" nz-button nzType="text">Khảo sát</button>
+      </div>
+      <div class="grid-config">
+        <button class="btn-text" nz-button nzType="text">Hỗ trợ y tế</button>
+      </div>
+      <div class="grid-config">
+        <button class="btn-text" nz-button nzType="text">Hội thảo</button>
+      </div>
+      <div class="grid-config">
+        <button class="btn-text" nz-button nzType="text">
+          Nghiên cứu khoa học
+        </button>
+      </div>
+    </div>
+    <div nz-row class="gutter-row">
+      <div class="grid-config">
+        <button class="btn-text" nz-button nzType="text">Học online</button>
+      </div>
+      <div class="grid-config">
+        <button
+          class="btn-text"
+          nz-button
+          nzType="text"
+          (click)="
+            this.router.navigate(['/layout/form'], { state: { option: 4 } })
+          "
+        >
+          Hỗ trợ tài chính
+        </button>
+      </div>
+      <div class="grid-config">
+        <button class="btn-text" nz-button nzType="text">Ngoại ngữ</button>
+      </div>
+      <div class="grid-config">
+        <button
+          class="btn-text"
+          nz-button
+          nzType="text"
+          (click)="
+            this.router.navigate(['/layout/form'], { state: { option: 3 } })
+          "
+        >
+          Chia sẻ kinh nghiệm
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

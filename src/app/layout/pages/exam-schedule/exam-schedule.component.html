@@ -1,3 +1,37 @@
-<p>
-  exam-schedule works!
-</p>
+<nz-select ngModel="Học kỳ 1">
+  <nz-option nzValue="Học kỳ 1" nzLabel="Học kỳ 1"></nz-option>
+  <nz-option nzValue="Học kỳ 2" nzLabel="Học kỳ 2"></nz-option>
+  <nz-option
+    nzValue="Chứng chỉ đầu ra tiếng anh"
+    nzLabel="Chứng chỉ đầu ra tiếng anh"
+  ></nz-option>
+</nz-select>
+
+<nz-table #basicTable [nzScroll]="{ y: '240px' }" [nzData]="listOfData">
+  <thead>
+    <tr>
+      <th nzWidth="120px">STT</th>
+      <th nzWidth="120px">Tên đợt thi</th>
+      <th nzWidth="120px">Tên môn học</th>
+      <th nzWidth="120px">Số tín chỉ</th>
+      <th nzWidth="120px">Ngày thi</th>
+      <th nzWidth="120px">Giờ thi</th>
+      <th nzWidth="120px">Ca thi</th>
+      <th nzWidth="120px">Số báo danh</th>
+      <th nzWidth="120px">Phòng thi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{ data.key }}</td>
+      <td>{{ data.nameExam }}</td>
+      <td>{{ data.name }}</td>
+      <td>{{ data.number }}</td>
+      <td>{{ data.date }}</td>
+      <td>{{ data.num }}</td>
+      <td>{{ data.time }}</td>
+      <td>{{ data.nameN }}</td>
+      <td>{{ data.class }}</td>
+    </tr>
+  </tbody>
+</nz-table>

@@ -1,0 +1,39 @@
+<div class="tab">
+  <nz-table
+    #rowSelectionTable
+    nzShowSizeChanger
+    [nzData]="listOfData"
+    [nzScroll]="{ y: '480px' }"
+  >
+    <thead>
+      <tr>
+        <th>STT</th>
+        <th *ngIf="option === 1">Tên công ty</th>
+        <th *ngIf="option === 2">Tên cơ sở</th>
+        <th *ngIf="option === 3">Tiêu đề</th>
+        <th *ngIf="option === 4">Nội dung</th>
+        <th *ngIf="option === 1 || option === 2">Vị trí</th>
+        <th *ngIf="option === 3">Mô tả</th>
+        <th *ngIf="option === 2">Địa chỉ</th>
+        <th *ngIf="option === 3">Địa điểm</th>
+        <th *ngIf="option === 2 || option === 3 || option === 4">Thời gian</th>
+        <th *ngIf="option === 1">Mô tả</th>
+        <th *ngIf="option === 1 || option === 4">Yêu cầu</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of rowSelectionTable.data">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td *ngIf="option !== 4"></td>
+        <td
+          [nzChecked]="setOfCheckedId.has(data.id)"
+          (nzCheckedChange)="onItemChecked(data.id, $event)"
+        ></td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>

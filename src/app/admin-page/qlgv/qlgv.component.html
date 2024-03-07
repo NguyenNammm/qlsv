@@ -1,0 +1,35 @@
+<nz-input-group [nzSuffix]="suffixIconSearch" style="width: 500px">
+  <input type="text" nz-input placeholder="Nhập mã giảng viên" />
+</nz-input-group>
+<ng-template #suffixIconSearch>
+  <span nz-icon nzType="search"></span>
+</ng-template>
+<br />
+<br />
+
+<nz-table #basicTable [nzData]="listOfData">
+  <thead>
+    <tr>
+      <th>STT</th>
+      <th>Mã giảng viên</th>
+      <th>Tên giảng viên</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{ data.key }}</td>
+      <td></td>
+      <td></td>
+      <td>
+        <a style="color: #0d99ff">
+          <span nz-icon nzType="edit" nzTheme="outline"></span>
+        </a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a style="color: red"
+          ><span nz-icon nzType="delete" nzTheme="outline"></span
+        ></a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

@@ -1,3 +1,39 @@
-<p>
-  search works!
-</p>
+<div class="gutter-example">
+  <div nz-col class="gutter-col">
+    <div nz-row class="gutter-row">
+      <div class="grid-config">
+        <button
+          class="btn-text"
+          nz-button
+          nzType="text"
+          (click)="
+            this.router.navigate(['/layout/form'], { state: { option: 1 } })
+          "
+        >
+          Cơ hội việc làm
+        </button>
+      </div>
+      <div class="grid-config">
+        <button class="btn-text" nz-button nzType="text">Sự kiện</button>
+      </div>
+      <div class="grid-config">
+        <button class="btn-text" nz-button nzType="text">Giảng viên</button>
+      </div>
+    </div>
+    <div nz-row class="gutter-row">
+      <div class="grid-config">
+        <button class="btn-text" nz-button nzType="text">
+          Chương trình đào tạo
+        </button>
+      </div>
+      <div class="grid-config">
+        <button class="btn-text" nz-button nzType="text">
+          Chương trình hỗ trợ học phí
+        </button>
+      </div>
+      <div class="grid-config">
+        <button class="btn-text" nz-button nzType="text">Doanh nghiệp</button>
+      </div>
+    </div>
+  </div>
+</div>

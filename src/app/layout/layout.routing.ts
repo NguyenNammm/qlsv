@@ -6,6 +6,7 @@ const routes: Routes = [
     path: '',
     component: LayoutComponent,
     children: [
+      { path: '', pathMatch: 'full', redirectTo: '/layout/trang-chu' },
       {
         path: 'trang-chu',
         loadChildren: () =>
@@ -62,6 +63,18 @@ const routes: Routes = [
         path: 'tra-cuu',
         loadChildren: () =>
           import('./pages/search/search.module').then((m) => m.SearchModule),
+      },
+      {
+        path: 'thong-tin',
+        loadChildren: () =>
+          import('./pages/infomation/infomation.module').then(
+            (m) => m.InfomationModule
+          ),
+      },
+      {
+        path: 'form',
+        loadChildren: () =>
+          import('./pages/bonus/bonus.module').then((m) => m.BonusModule),
       },
     ],
   },

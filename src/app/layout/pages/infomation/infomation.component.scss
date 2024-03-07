@@ -1,0 +1,53 @@
+[nz-button] {
+  margin-right: 8px;
+  margin-bottom: 12px;
+}
+
+.upper {
+  display: flex;
+  justify-content: flex-start;
+
+  .pic {}
+
+  .first-info {
+    padding-left: 50px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+
+    input {
+      width: 400px;
+    }
+
+    .name {
+      padding-bottom: 10px;
+
+
+    }
+
+    .msv {
+      padding-bottom: 10px;
+    }
+
+    .birth {
+      padding-bottom: 10px;
+
+    }
+  }
+}
+
+
+
+.lower {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 30px;
+
+  input {
+    width: 200px;
+  }
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+}

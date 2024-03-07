@@ -1,0 +1,48 @@
+<div class="header">
+  <div class="input">
+    <nz-input-group [nzSuffix]="suffixIconSearch" style="width: 500px">
+      <input type="text" nz-input placeholder="Nhập mã sinh viên" />
+    </nz-input-group>
+    <ng-template #suffixIconSearch>
+      <span nz-icon nzType="search"></span>
+    </ng-template>
+  </div>
+  <div class="select">
+    <nz-select ngModel="Lớp 62PM2">
+      <nz-option nzValue="Lớp 62PM2" nzLabel="Lớp 62PM2"></nz-option>
+      <nz-option nzValue="Lớp 63KTPM1" nzLabel="Lớp 63KTPM1"></nz-option>
+      <nz-option nzValue="Lớp 63KTPM2" nzLabel="Lớp 63KTPM2"></nz-option>
+      <nz-option nzValue="Lớp 62TH" nzLabel="Lớp 62TH"></nz-option>
+      <nz-option nzValue="Lớp 61TH" nzLabel="Lớp 61TH"></nz-option>
+    </nz-select>
+  </div>
+</div>
+<br />
+<br />
+
+<nz-table #basicTable [nzData]="listOfData">
+  <thead>
+    <tr>
+      <th>STT</th>
+      <th>Mã sinh viên</th>
+      <th>Tên sinh viên</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{ data.key }}</td>
+      <td></td>
+      <td></td>
+      <td>
+        <a style="color: #0d99ff">
+          <span nz-icon nzType="edit" nzTheme="outline"></span>
+        </a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a style="color: red"
+          ><span nz-icon nzType="delete" nzTheme="outline"></span
+        ></a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

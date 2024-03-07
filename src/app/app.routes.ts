@@ -12,4 +12,9 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./layout/layout.module').then((m) => m.LayoutModule),
   },
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./admin-page/admin-page.module').then((m) => m.AdminPageModule),
+  },
 ];

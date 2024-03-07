@@ -1,3 +1,33 @@
-<p>
-  tuition works!
-</p>
+<div class="header">
+  <h1 class="name">{{ name }}</h1>
+</div>
+<div class="content">
+  <div class="info">
+    <div class="stk">STK: {{ stk }}</div>
+    <div class="msv">MSV: {{ msv }}</div>
+    <div class="class">Lớp: {{ class }}</div>
+  </div>
+  <div class="fee">
+    <div class="payed">Tổng học phí đã đóng: {{ payed }}</div>
+    <div class="unpayed">Tổng học phí đã đóng: {{ unpayed }}</div>
+  </div>
+</div>
+
+<nz-table #basicTable [nzScroll]="{ y: '240px' }" [nzData]="listOfData">
+  <thead>
+    <tr>
+      <th>STT</th>
+      <th>Loại</th>
+      <th>Học kỳ</th>
+      <th>Số tiền</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{ data.key }}</td>
+      <td>{{ data.type }}</td>
+      <td>{{ data.year }}</td>
+      <td>{{ data.money }}</td>
+    </tr>
+  </tbody>
+</nz-table>

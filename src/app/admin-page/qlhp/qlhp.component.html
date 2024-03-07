@@ -1,0 +1,26 @@
+<nz-table #basicTable [nzData]="listOfData">
+  <thead>
+    <tr>
+      <th>STT</th>
+      <th>Tên học phần</th>
+      <th>Tên Lớp</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{ data.key }}</td>
+      <td></td>
+      <td></td>
+      <td>
+        <a style="color: #0d99ff">
+          <span nz-icon nzType="edit" nzTheme="outline"></span>
+        </a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a style="color: red"
+          ><span nz-icon nzType="delete" nzTheme="outline"></span
+        ></a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

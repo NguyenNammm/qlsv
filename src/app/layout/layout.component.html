@@ -22,81 +22,149 @@
       nzMode="inline"
       [nzInlineCollapsed]="isCollapsed"
     >
-      <li nz-menu-item nzOpen>
-        <span
-          class="dropdown-menu"
-          nz-icon
-          nzType="desktop"
-          nzTheme="outline"
-        ></span>
-        <a (click)="goToPage('/layout/trang-chu')">Trang chủ</a>
-      </li>
-      <li nz-submenu nzOpen nzTitle="Đăng kí học" nzIcon="book">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a (click)="goToPage('/layout/dang-ki-hoc')">Đăng kí học mới</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a (click)="goToPage('/layout/thong-tin-dang-ki-hoc')"
-              >KIểm tra thông tin đăng kí học</a
-            >
-          </li>
-        </ul>
-      </li>
-      <li nz-menu-item nzOpen>
-        <span
-          class="dropdown-menu"
-          nz-icon
-          nzType="check"
-          nzTheme="outline"
-        ></span>
-        <a (click)="goToPage('/layout/diem-thi')">Xem điểm</a>
-      </li>
-      <li nz-menu-item nzOpen>
-        <span
-          class="dropdown-menu"
-          nz-icon
-          nzType="calendar"
-          nzTheme="outline"
-        ></span>
-        <a (click)="goToPage('/layout/lich-thi')">Xem lịch thi</a>
-      </li>
-      <li nz-menu-item nzOpen>
-        <span
-          class="dropdown-menu"
-          nz-icon
-          nzType="bank"
-          nzTheme="outline"
-        ></span>
-        <a (click)="goToPage('/layout/hoc-phi')">Xem học phí</a>
-      </li>
-      <li nz-menu-item nzOpen>
-        <span
-          class="dropdown-menu"
-          nz-icon
-          nzType="bell"
-          nzTheme="outline"
-        ></span>
-        <a (click)="goToPage('/layout/thong-bao')">Thông báo</a>
-      </li>
-      <li nz-menu-item nzOpen>
-        <span
-          class="dropdown-menu"
-          nz-icon
-          nzType="form"
-          nzTheme="outline"
-        ></span>
-        <a (click)="goToPage('/layout/dang-ky-khac')">Đăng kí khác</a>
-      </li>
-      <li nz-menu-item nzOpen>
-        <span
-          class="dropdown-menu"
-          nz-icon
-          nzType="search"
-          nzTheme="outline"
-        ></span>
-        <a (click)="goToPage('/layout/tra-cuu')">Tra cứu</a>
-      </li>
+      <div class="temp1" *ngIf="studentName !== 'Admin'">
+        <li nz-menu-item nzOpen>
+          <span
+            class="dropdown-menu"
+            nz-icon
+            nzType="desktop"
+            nzTheme="outline"
+          ></span>
+          <a (click)="goToPage('/layout/trang-chu')">Trang chủ</a>
+        </li>
+        <li nz-submenu nzOpen nzTitle="Đăng kí học" nzIcon="book">
+          <ul>
+            <li nz-menu-item nzMatchRouter>
+              <a (click)="goToPage('/layout/dang-ki-hoc')">Đăng kí học mới</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a (click)="goToPage('/layout/thong-tin-dang-ki-hoc')"
+                >KIểm tra thông tin đăng kí học</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li nz-menu-item nzOpen>
+          <span
+            class="dropdown-menu"
+            nz-icon
+            nzType="check"
+            nzTheme="outline"
+          ></span>
+          <a (click)="goToPage('/layout/diem-thi')">Xem điểm</a>
+        </li>
+        <li nz-menu-item nzOpen>
+          <span
+            class="dropdown-menu"
+            nz-icon
+            nzType="calendar"
+            nzTheme="outline"
+          ></span>
+          <a (click)="goToPage('/layout/lich-thi')">Xem lịch thi</a>
+        </li>
+        <li nz-menu-item nzOpen>
+          <span
+            class="dropdown-menu"
+            nz-icon
+            nzType="bank"
+            nzTheme="outline"
+          ></span>
+          <a (click)="goToPage('/layout/hoc-phi')">Xem học phí</a>
+        </li>
+        <li nz-menu-item nzOpen>
+          <span
+            class="dropdown-menu"
+            nz-icon
+            nzType="bell"
+            nzTheme="outline"
+          ></span>
+          <a (click)="goToPage('/layout/thong-bao')">Thông báo</a>
+        </li>
+        <li nz-menu-item nzOpen>
+          <span
+            class="dropdown-menu"
+            nz-icon
+            nzType="form"
+            nzTheme="outline"
+          ></span>
+          <a (click)="goToPage('/layout/dang-ky-khac')">Đăng kí khác</a>
+        </li>
+        <li nz-menu-item nzOpen>
+          <span
+            class="dropdown-menu"
+            nz-icon
+            nzType="search"
+            nzTheme="outline"
+          ></span>
+          <a (click)="goToPage('/layout/tra-cuu')">Tra cứu</a>
+        </li>
+      </div>
+      <div class="temp2" *ngIf="studentName === 'Admin'">
+        <li nz-menu-item nzOpen>
+          <span
+            class="dropdown-menu"
+            nz-icon
+            nzType="profile"
+            nzTheme="outline"
+          ></span>
+          <a
+            (click)="
+              this.router.navigate(['/layout/admin'], {
+                state: { option: 1 }
+              })
+            "
+            >Quản lý sinh viên</a
+          >
+        </li>
+        <li nz-menu-item nzOpen>
+          <span
+            class="dropdown-menu"
+            nz-icon
+            nzType="profile"
+            nzTheme="outline"
+          ></span>
+          <a
+            (click)="
+              this.router.navigate(['/layout/admin'], {
+                state: { option: 2 }
+              })
+            "
+            >Quản lý giảng viên</a
+          >
+        </li>
+        <li nz-menu-item nzOpen>
+          <span
+            class="dropdown-menu"
+            nz-icon
+            nzType="profile"
+            nzTheme="outline"
+          ></span>
+          <a
+            (click)="
+              this.router.navigate(['/layout/admin'], {
+                state: { option: 3 }
+              })
+            "
+            >Quản lý thông báo</a
+          >
+        </li>
+        <li nz-menu-item nzOpen>
+          <span
+            class="dropdown-menu"
+            nz-icon
+            nzType="profile"
+            nzTheme="outline"
+          ></span>
+          <a
+            (click)="
+              this.router.navigate(['/layout/admin'], {
+                state: { option: 4 }
+              })
+            "
+            >Quản lý học phần</a
+          >
+        </li>
+      </div>
     </ul>
   </nz-sider>
   <nz-layout>
@@ -114,12 +182,12 @@
             <nz-badge nzDot>
               <nz-avatar nzIcon="user" [nzShape]="'circle'"></nz-avatar>
             </nz-badge>
-            <span class="dropdown-menu">{{ studentName }}</span>
+            <span class="dropdown-menu">{{ student }}</span>
             <span nz-icon nzType="caret-down" nzTheme="outline"></span>
           </a>
           <nz-dropdown-menu #menu="nzDropdownMenu">
             <ul nz-menu nzSelectable>
-              <li nz-menu-item>
+              <li nz-menu-item (click)="goToPage('/layout/thong-tin')">
                 <span
                   nz-icon
                   nzType="info-circle"

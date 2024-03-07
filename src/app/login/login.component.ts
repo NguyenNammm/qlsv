@@ -24,11 +24,11 @@ export class LoginComponent implements OnInit {
   validateForm: FormGroup<{
     userName: FormControl<string>;
     password: FormControl<string>;
-    remember: FormControl<boolean>;
+    // remember: FormControl<boolean>;
   }> = this.fb.group({
     userName: ['', [Validators.required]],
     password: ['', [Validators.required]],
-    remember: [true],
+    // remember: [true],
   });
 
   submitForm(): void {
@@ -40,33 +40,40 @@ export class LoginComponent implements OnInit {
         }
       });
     } else {
-      const user =
-        '1951064097' ||
-        '1951064099' ||
-        '1951064188' ||
-        '2051060402' ||
-        '2151170550' ||
-        '1951061109' ||
-        '2051063905' ||
-        '2151173783' ||
-        '2151170582' ||
-        '2151173799' ||
-        'admin';
+      const user = [
+        '1951064097',
+        '1951064099',
+        '1951064188',
+        '2051060402',
+        '2151170550',
+        '1951061109',
+        '2051063905',
+        '2151173783',
+        '2151170582',
+        '2151173799',
+        'admin',
+      ];
       const password = '1';
-      if (
-        this.validateForm.value.userName === user &&
-        this.validateForm.value.password === password
-      ) {
-        this.name = this.validateForm.value.userName;
-        this.goTo();
-      } else {
-        this.message.error('Sai thông tin đăng nhập');
+      console.log(this.validateForm.value);
+
+      for (let i = 0; i < user.length; i++) {
+        if (
+          this.validateForm.value.userName === user[i] &&
+          this.validateForm.value.password === password
+        ) {
+          this.name = this.validateForm.value.userName;
+          this.goTo(this.validateForm.value.userName);
+          return;
+        }
       }
+      this.message.error('Sai thông tin đăng nhập');
     }
   }
 
-  goTo() {
-    this.router.navigate(['/layout'], { state: { name: this.name } });
+  goTo(i: any) {
+    if (i !== 'admin') {
+      this.router.navigate(['/layout'], { state: { name: this.name } });
+    } else this.router.navigate(['/admin']);
   }
 
   forgotPass() {

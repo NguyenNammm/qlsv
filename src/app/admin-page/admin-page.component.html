@@ -1,0 +1,123 @@
+<nz-layout class="app-layout">
+  <nz-sider
+    class="menu-sidebar"
+    nzCollapsible
+    nzWidth="256px"
+    nzBreakpoint="lg"
+    [(nzCollapsed)]="isCollapsed"
+    [nzTrigger]="null"
+  >
+    <div class="sidebar-logo">
+      <a href="" target="_blank">
+        <img
+          src="https://sinhvien1.tlu.edu.vn/assets/images/logo-small.png"
+          alt="logo"
+        />
+        <h1>Quản lý sinh viên TLU</h1>
+      </a>
+    </div>
+    <ul
+      nz-menu
+      nzTheme="dark"
+      nzMode="inline"
+      [nzInlineCollapsed]="isCollapsed"
+    >
+      <li nz-menu-item nzOpen>
+        <span
+          class="dropdown-menu"
+          nz-icon
+          nzType="profile"
+          nzTheme="outline"
+        ></span>
+        <a (click)="goToPage('/admin/qlsv')">Quản lý sinh viên</a>
+      </li>
+      <li nz-menu-item nzOpen>
+        <span
+          class="dropdown-menu"
+          nz-icon
+          nzType="profile"
+          nzTheme="outline"
+        ></span>
+        <a (click)="goToPage('/admin/qlgv')">Quản lý giảng viên</a>
+      </li>
+      <li nz-menu-item nzOpen>
+        <span
+          class="dropdown-menu"
+          nz-icon
+          nzType="profile"
+          nzTheme="outline"
+        ></span>
+        <a (click)="goToPage('/admin/qltb')">Quản lý thông báo</a>
+      </li>
+      <li nz-menu-item nzOpen>
+        <span
+          class="dropdown-menu"
+          nz-icon
+          nzType="profile"
+          nzTheme="outline"
+        ></span>
+        <a (click)="goToPage('/admin/qlhp')">Quản lý học phần</a>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+          <span
+            class="trigger"
+            nz-icon
+            [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+          ></span>
+        </span>
+        <span class="user-name">
+          <a nz-dropdown [nzDropdownMenu]="menu" style="color: black">
+            <nz-badge nzDot>
+              <nz-avatar nzIcon="user" [nzShape]="'circle'"></nz-avatar>
+            </nz-badge>
+            <span class="dropdown-menu">{{ student }}</span>
+            <span nz-icon nzType="caret-down" nzTheme="outline"></span>
+          </a>
+          <nz-dropdown-menu #menu="nzDropdownMenu">
+            <ul nz-menu nzSelectable>
+              <li nz-menu-item (click)="goToPage('/thong-tin')">
+                <span
+                  nz-icon
+                  nzType="info-circle"
+                  nzTheme="outline"
+                  class="dropdown-menu"
+                ></span>
+                <span>Thông tin cá nhân</span>
+              </li>
+              <li nz-menu-item>
+                <a href="http://tlu.edu.vn" style="color: black">
+                  <span
+                    nz-icon
+                    nzType="question-circle"
+                    nzTheme="outline"
+                    class="dropdown-menu"
+                  ></span>
+                  <span>Giới thiệu</span></a
+                >
+              </li>
+              <li nz-menu-item (click)="logout()">
+                <span
+                  nz-icon
+                  nzType="logout"
+                  nzTheme="outline"
+                  class="dropdown-menu"
+                ></span>
+                <span>Đăng xuất</span>
+              </li>
+            </ul>
+          </nz-dropdown-menu>
+        </span>
+      </div>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>
