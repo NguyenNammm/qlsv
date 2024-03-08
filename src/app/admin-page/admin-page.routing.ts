@@ -7,7 +7,7 @@ const routes: Routes = [
     component: AdminPageComponent,
     children: [
       {
-        path: 'qlsv',
+        path: 'qlsv2',
         loadChildren: () =>
           import('./qlsv/detail-admin.module').then((m) => m.DetailAdminModule),
       },
@@ -25,6 +25,11 @@ const routes: Routes = [
         path: 'qlhp',
         loadChildren: () =>
           import('./qlhp/qlhp.module').then((m) => m.QlhpModule),
+      },
+      {
+        path: 'qlsv1',
+        loadChildren: () =>
+          import('./qlsv1/qlsv1.module').then((m) => m.Qlsv1Module),
       },
     ],
   },

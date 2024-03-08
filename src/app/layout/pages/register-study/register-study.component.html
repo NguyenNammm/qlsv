@@ -1,3 +1,68 @@
-<p>
-  page1 works!
-</p>
+<nz-select ngModel="Học kỳ chính">
+  <nz-option nzValue="Học kỳ chính" nzLabel="Học kỳ chính"></nz-option>
+  <nz-option nzValue="Học kỳ phụ" nzLabel="Học kỳ phụ"></nz-option>
+  <nz-option
+    nzValue="Chứng chỉ đầu ra tiếng anh"
+    nzLabel="Chứng chỉ đầu ra tiếng anh"
+  ></nz-option>
+</nz-select>
+<br />
+<br />
+<div class="content">
+  <div class="table1">
+    <div class="text">Môn học</div>
+    <nz-table
+      [nzFrontPagination]="false"
+      [nzShowPagination]="false"
+      #rowSelectionTable
+      [nzData]="listOfData"
+      [nzScroll]="{ y: '480px' }"
+    >
+      <thead>
+        <tr>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of rowSelectionTable.data">
+          <td
+            [nzChecked]="setOfCheckedId.has(data.id)"
+            (nzCheckedChange)="onItemChecked(data.id, $event)"
+          ></td>
+          <td>Môn đăng kí thứ {{ data.name }}</td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+  <div class="table2">
+    <div class="text">Lớp học phần</div>
+    <div class="border-box">
+      <div class="text-detail">Lớp chính: Môn đăng kí</div>
+    </div>
+    <nz-table
+      [nzFrontPagination]="false"
+      [nzShowPagination]="false"
+      #rowSelectionTable
+      [nzData]="listOfData"
+      [nzScroll]="{ y: '480px' }"
+    >
+      <thead>
+        <tr>
+          <th>Tuần</th>
+          <th>Thời gian</th>
+          <th>Phòng</th>
+          <th>Giáo viên</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of rowSelectionTable.data">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>
