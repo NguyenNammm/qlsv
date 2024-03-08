@@ -67,6 +67,7 @@ export class LoginComponent implements OnInit {
         }
       }
       this.message.error('Sai thông tin đăng nhập');
+      console.error('Sai thông tin đăng nhập');
     }
   }
 
