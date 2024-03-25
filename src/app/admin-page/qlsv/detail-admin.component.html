@@ -1,7 +1,12 @@
 <div class="header">
   <div class="input">
     <nz-input-group [nzSuffix]="suffixIconSearch" style="width: 500px">
-      <input type="text" nz-input placeholder="Nhập mã sinh viên" />
+      <input
+        type="text"
+        nz-input
+        placeholder="Nhập mã sinh viên"
+        (change)="change($event)"
+      />
     </nz-input-group>
     <ng-template #suffixIconSearch>
       <span nz-icon nzType="search"></span>
@@ -10,7 +15,7 @@
   <br />
   <br />
   <div class="select">
-    <nz-select ngModel="Lớp 62PM2">
+    <nz-select [(ngModel)]="selectedValue">
       <nz-option nzValue="Lớp 62PM2" nzLabel="Lớp 62PM2"></nz-option>
       <nz-option nzValue="Lớp 63KTPM1" nzLabel="Lớp 63KTPM1"></nz-option>
       <nz-option nzValue="Lớp 63KTPM2" nzLabel="Lớp 63KTPM2"></nz-option>
@@ -28,23 +33,59 @@
       <th>STT</th>
       <th>Mã sinh viên</th>
       <th>Tên sinh viên</th>
-      <th></th>
+      <th>Chức năng</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let data of basicTable.data">
       <td>{{ data.key }}</td>
-      <td></td>
-      <td></td>
+      <td>{{ data.msv }}</td>
+      <td>{{ data.ten }}</td>
       <td>
         <a style="color: #0d99ff">
-          <span nz-icon nzType="edit" nzTheme="outline"></span>
+          <span
+            nz-icon
+            nzType="edit"
+            nzTheme="outline"
+            (click)="showModal(data.key)"
+          ></span>
         </a>
         <nz-divider nzType="vertical"></nz-divider>
         <a style="color: red"
-          ><span nz-icon nzType="delete" nzTheme="outline"></span
+          ><span
+            nz-icon
+            nzType="delete"
+            nzTheme="outline"
+            (click)="deleteAction(data.key)"
+          ></span
         ></a>
       </td>
     </tr>
   </tbody>
 </nz-table>
+
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="Chỉnh sửa thông tin sinh viên"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  nzOkText="Xác nhận"
+  nzCancelText="Hủy"
+>
+  <ng-container *nzModalContent>
+    <input
+      nz-input
+      placeholder="Mã sinh viên"
+      [(ngModel)]="ten"
+      type="number"
+    />
+    <br />
+    <br />
+    <input
+      nz-input
+      placeholder="Tên sinh viên"
+      [(ngModel)]="msv"
+      type="string"
+    />
+  </ng-container>
+</nz-modal>

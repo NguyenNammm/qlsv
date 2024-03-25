@@ -3,7 +3,7 @@
     #rowSelectionTable
     nzShowSizeChanger
     [nzData]="listOfData"
-    [nzScroll]="{ y: '480px' }"
+    [nzScroll]="{ x: '800px', y: '480px' }"
   >
     <thead>
       <tr>
@@ -19,16 +19,25 @@
         <th *ngIf="option === 2 || option === 3 || option === 4">Thời gian</th>
         <th *ngIf="option === 1">Mô tả</th>
         <th *ngIf="option === 1 || option === 4">Yêu cầu</th>
-        <th></th>
+        <th>Chức năng</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let data of rowSelectionTable.data">
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td *ngIf="option !== 4"></td>
+        <td>{{ data.id }}</td>
+        <td *ngIf="option === 1">{{ data.tenCTY }}</td>
+        <td *ngIf="option === 2">{{ data.tenCso }}</td>
+        <td *ngIf="option === 3">{{ data.tieuDe }}</td>
+        <td *ngIf="option === 4">{{ data.noiDung }}</td>
+        <td *ngIf="option === 1 || option === 2">{{ data.viTri }}</td>
+        <td *ngIf="option === 3">{{ data.moTa }}</td>
+        <td *ngIf="option === 2">{{ data.diaChi }}</td>
+        <td *ngIf="option === 3">{{ data.diaDiem }}</td>
+        <td *ngIf="option === 2 || option === 3 || option === 4">
+          {{ data.thoiGian }}
+        </td>
+        <td *ngIf="option === 1">{{ data.moTa }}</td>
+        <td *ngIf="option === 1 || option === 4">{{ data.yeuCau }}</td>
         <td
           [nzChecked]="setOfCheckedId.has(data.id)"
           (nzCheckedChange)="onItemChecked(data.id, $event)"

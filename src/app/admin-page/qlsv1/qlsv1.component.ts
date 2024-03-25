@@ -2,10 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 interface Person {
-  key: string;
-  name: string;
-  age: number;
-  address: string;
+  key: number;
+  ten: string;
+  lop: string;
 }
 
 @Component({
@@ -18,22 +17,29 @@ export class Qlsv1Component implements OnInit {
   local: any;
   listOfData: Person[] = [
     {
-      key: '1',
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
+      key: 1,
+      ten: 'Giảng viên lớp 62PM2',
+      lop: 'Lớp 62PM2',
     },
     {
-      key: '2',
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
+      key: 2,
+      ten: 'Giảng viên lớp 63KTPM1',
+      lop: 'Lớp 63KTPM1',
     },
     {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park',
+      key: 3,
+      ten: 'Giảng viên lớp 63KTPM2',
+      lop: 'Lớp 63KTPM2',
+    },
+    {
+      key: 4,
+      ten: 'Giảng viên lớp 62TH',
+      lop: 'Lớp 62TH',
+    },
+    {
+      key: 5,
+      ten: 'Giảng viên lớp 61TH',
+      lop: 'Lớp 61TH',
     },
   ];
 

@@ -4,21 +4,25 @@
       <th>STT</th>
       <th>Tên lớp</th>
       <th>Tên giảng viên</th>
-      <th></th>
+      <th>Chức năng</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let data of basicTable.data">
       <td>{{ data.key }}</td>
-      <td></td>
-      <td></td>
+      <td>{{ data.lop }}</td>
+      <td>{{ data.ten }}</td>
       <td>
         <a style="color: #0d99ff">
           <span
             nz-icon
             nzType="search"
             nzTheme="outline"
-            (click)="this.router.navigate(['/admin/qlsv2'])"
+            (click)="
+              this.router.navigate(['/admin/qlsv2'], {
+                state: { number: data.key }
+              })
+            "
           ></span>
         </a>
       </td>

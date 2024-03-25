@@ -1,5 +1,10 @@
 <nz-input-group [nzSuffix]="suffixIconSearch" style="width: 500px">
-  <input type="text" nz-input placeholder="Nhập mã giảng viên" />
+  <input
+    type="text"
+    nz-input
+    placeholder="Nhập mã giảng viên"
+    (change)="change($event)"
+  />
 </nz-input-group>
 <ng-template #suffixIconSearch>
   <span nz-icon nzType="search"></span>
@@ -13,23 +18,59 @@
       <th>STT</th>
       <th>Mã giảng viên</th>
       <th>Tên giảng viên</th>
-      <th></th>
+      <th>Chức năng</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let data of basicTable.data">
       <td>{{ data.key }}</td>
-      <td></td>
-      <td></td>
+      <td>{{ data.mgv }}</td>
+      <td>{{ data.ten }}</td>
       <td>
         <a style="color: #0d99ff">
-          <span nz-icon nzType="edit" nzTheme="outline"></span>
+          <span
+            nz-icon
+            nzType="edit"
+            nzTheme="outline"
+            (click)="showModal(data.key)"
+          ></span>
         </a>
         <nz-divider nzType="vertical"></nz-divider>
         <a style="color: red"
-          ><span nz-icon nzType="delete" nzTheme="outline"></span
+          ><span
+            nz-icon
+            nzType="delete"
+            nzTheme="outline"
+            (click)="deleteAction(data.key)"
+          ></span
         ></a>
       </td>
     </tr>
   </tbody>
 </nz-table>
+
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="Chỉnh sửa thông tin giảng viên"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  nzOkText="Xác nhận"
+  nzCancelText="Hủy"
+>
+  <ng-container *nzModalContent>
+    <input
+      nz-input
+      placeholder="Mã giảng viên"
+      [(ngModel)]="ten"
+      type="number"
+    />
+    <br />
+    <br />
+    <input
+      nz-input
+      placeholder="Tên giảng viên"
+      [(ngModel)]="mgv"
+      type="string"
+    />
+  </ng-container>
+</nz-modal>

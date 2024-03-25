@@ -16,12 +16,12 @@
       [nzShowPagination]="false"
       #rowSelectionTable
       [nzData]="listOfData"
-      [nzScroll]="{ y: '480px' }"
+      [nzScroll]="{ y: '440px' }"
     >
       <thead>
         <tr>
-          <th></th>
-          <th></th>
+          <th>Chức năng</th>
+          <th>Môn</th>
         </tr>
       </thead>
       <tbody>
@@ -43,9 +43,8 @@
     <nz-table
       [nzFrontPagination]="false"
       [nzShowPagination]="false"
-      #rowSelectionTable
-      [nzData]="listOfData"
-      [nzScroll]="{ y: '480px' }"
+      [nzData]="listOfData2"
+      [nzScroll]="{ y: '400px' }"
     >
       <thead>
         <tr>
@@ -56,10 +55,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let data of rowSelectionTable.data">
-          <td></td>
-          <td></td>
-          <td></td>
+        <tr *ngFor="let data of listOfData2">
+          <td>{{ data.address }}</td>
+          <td>{{ data.age }}</td>
+          <td>{{ data.name }}</td>
           <td></td>
         </tr>
       </tbody>

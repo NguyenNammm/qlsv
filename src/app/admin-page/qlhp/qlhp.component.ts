@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { NzModalService } from 'ng-zorro-antd/modal';
 
 interface Person {
-  key: string;
-  name: string;
-  age: number;
-  address: string;
+  key: number;
+  ten: string;
+  lop: string;
 }
 
 @Component({
@@ -15,33 +15,63 @@ interface Person {
 export class QlhpComponent implements OnInit {
   option: any;
   local: any;
+  ten: any;
+  lop: any;
+  key: any;
+  selectedValue: any;
+  isVisible = false;
   listOfData: Person[] = [
     {
-      key: '1',
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
+      key: 1,
+      ten: 'Phát triển dự án phần mềm',
+      lop: '63KTPM1',
     },
     {
-      key: '2',
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
+      key: 2,
+      ten: 'Học máy',
+      lop: '62TH4',
     },
     {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park',
+      key: 3,
+      ten: 'Giải tích hàm nhiều biến',
+      lop: '65TH1',
     },
   ];
 
-  // constructor(public router: Router, private location: Location) {
-  //   this.local = this.location.getState();
-  // }
-  ngOnInit() {
-    // console.log(this.local);
-    // this.option = this.local.option;
-    // console.log(this.local.option);
+  constructor(private modal: NzModalService) {}
+  ngOnInit() {}
+  showModal(item: any): void {
+    this.key = item;
+    this.isVisible = true;
+  }
+
+  showDeleteConfirm(key: number): void {
+    this.listOfData = this.listOfData.filter((item) => item.key !== key);
+  }
+  deleteAction(item: any) {
+    this.modal.confirm({
+      nzTitle: 'Xóa sinh viên đã chọn?',
+      // nzContent: '<b style="color: red;">Some descriptions</b>',
+      nzOkText: 'Xác nhận',
+      nzOkType: 'primary',
+      nzOkDanger: true,
+      nzOnOk: () => this.showDeleteConfirm(item),
+      nzCancelText: ' Hủy',
+      nzOnCancel: () => console.log('Cancel'),
+    });
+  }
+  handleOk(): void {
+    this.listOfData.forEach((item) => {
+      if (this.key === item.key) {
+        item.lop = this.lop;
+        item.ten = this.ten;
+      }
+    });
+    this.isVisible = false;
+  }
+
+  handleCancel(): void {
+    console.log('Button cancel clicked!');
+    this.isVisible = false;
   }
 }

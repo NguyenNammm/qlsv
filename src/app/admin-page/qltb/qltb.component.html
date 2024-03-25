@@ -4,23 +4,48 @@
       <th>STT</th>
       <th>Tiêu đề</th>
       <th>Nội dung</th>
-      <th></th>
+      <th>Chức năng</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let data of basicTable.data">
       <td>{{ data.key }}</td>
-      <td></td>
-      <td></td>
+      <td>{{ data.ten }}</td>
+      <td>{{ data.nd }}</td>
       <td>
         <a style="color: #0d99ff">
-          <span nz-icon nzType="edit" nzTheme="outline"></span>
+          <span
+            nz-icon
+            nzType="edit"
+            nzTheme="outline"
+            (click)="showModal(data.key)"
+          ></span>
         </a>
         <nz-divider nzType="vertical"></nz-divider>
         <a style="color: red"
-          ><span nz-icon nzType="delete" nzTheme="outline"></span
+          ><span
+            nz-icon
+            nzType="delete"
+            nzTheme="outline"
+            (click)="deleteAction(data.key)"
+          ></span
         ></a>
       </td>
     </tr>
   </tbody>
 </nz-table>
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="Chỉnh sửa thông tin thông báo"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  nzOkText="Xác nhận"
+  nzCancelText="Hủy"
+>
+  <ng-container *nzModalContent>
+    <input nz-input placeholder="Tiêu đề" [(ngModel)]="ten" type="number" />
+    <br />
+    <br />
+    <input nz-input placeholder="Nội dung" [(ngModel)]="nd" type="string" />
+  </ng-container>
+</nz-modal>
