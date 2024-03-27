@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NzModalService } from 'ng-zorro-antd/modal';
 
 interface ItemData {
   id: number;
@@ -53,14 +54,40 @@ export class RegisterStudyComponent implements OnInit {
   listOfData2: ItemData2[] = [];
   setOfCheckedId = new Set<number>();
 
+  constructor(private modal: NzModalService) {}
+
   updateCheckedSet(id: number, checked: boolean): void {
     if (checked) {
       this.setOfCheckedId.add(id);
-      this.updateValue(this.setOfCheckedId.size, 1);
+      this.showConfirm(id);
     } else {
       this.setOfCheckedId.delete(id);
-      this.updateValue(this.setOfCheckedId.size, 2);
+      this.showDeleteConfirm(id);
     }
+  }
+
+  showConfirm(id: number): void {
+    this.modal.confirm({
+      nzTitle: '<i>Đăng kí môn học đã chọn?</i>',
+      // nzContent: '<b>Some descriptions</b>',
+      nzOkText: 'Đăng kí',
+      nzCancelText: 'Hủy',
+      nzOnOk: () => this.updateValue(this.setOfCheckedId.size, 1),
+      nzOnCancel: () => this.setOfCheckedId.delete(id),
+    });
+  }
+
+  showDeleteConfirm(id: number): void {
+    this.modal.confirm({
+      nzTitle: 'Hủy đăng kí môn đã chọn?',
+      // nzContent: '<b style="color: red;">Some descriptions</b>',
+      nzOkText: 'Hủy đăng kí',
+      nzOkType: 'primary',
+      nzOkDanger: true,
+      nzOnOk: () => this.updateValue(this.setOfCheckedId.size, 2),
+      nzCancelText: 'Hủy',
+      nzOnCancel: () => this.setOfCheckedId.add(id),
+    });
   }
 
   onItemChecked(id: number, checked: boolean): void {
@@ -93,7 +120,7 @@ export class RegisterStudyComponent implements OnInit {
   ngOnInit(): void {
     this.listOfData = new Array(5).fill(0).map((_, index) => ({
       id: index,
-      name: ` ${index}`,
+      name: ` ${index + 1}`,
       age: '45 Tiết',
       address: `Tuần ${index}`,
     }));
