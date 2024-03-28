@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { NzModalService } from 'ng-zorro-antd/modal';
 
 @Component({
   selector: 'app-infomation',
@@ -8,6 +9,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./infomation.component.scss'],
 })
 export class InfomationComponent implements OnInit {
+  a: any;
   name: any;
   msv: any;
   birth: any;
@@ -17,7 +19,11 @@ export class InfomationComponent implements OnInit {
   lop: any;
   disable: any;
   studentName: any;
-  constructor(public router: Router, private location: Location) {
+  constructor(
+    public router: Router,
+    private location: Location,
+    private modal: NzModalService
+  ) {
     this.studentName = this.location.getState();
   }
 
@@ -145,5 +151,14 @@ export class InfomationComponent implements OnInit {
   edit() {
     this.disable = false;
     this.genForm();
+  }
+  save() {
+    this.modal.confirm({
+      nzTitle: '<i>Lưu thông tin?</i>',
+      nzOkText: 'Lưu',
+      nzCancelText: 'Hủy',
+      nzOnOk: () => (this.disable = true),
+      nzOnCancel: () => (this.disable = false),
+    });
   }
 }

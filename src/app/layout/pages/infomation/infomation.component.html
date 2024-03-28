@@ -44,12 +44,7 @@
   <button nz-button nzType="primary" (click)="edit()" *ngIf="disable === true">
     Sửa thông tin
   </button>
-  <button
-    nz-button
-    nzType="primary"
-    (click)="ngOnInit()"
-    *ngIf="disable === false"
-  >
+  <button nz-button nzType="primary" (click)="save()" *ngIf="disable === false">
     Lưu lại
   </button>
   <button
